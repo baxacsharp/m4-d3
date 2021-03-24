@@ -1,39 +1,25 @@
 import React from 'react'
-import { Card, Button, Container, Row, Col } from 'react-bootstrap'
-import books from '../data/history.json'
+import { Card, Button, Col } from 'react-bootstrap'
 // import SelectedBook from './SelectedBook'
-class Home extends React.Component {
-    state = {
-        selectedBooks: null
-    }
+class SingleBook extends React.Component {
+
     render() {
         return (
-            <Container>
-                <Row >
-                    {
-                        books.map(book => (
-                            <Card style={{ width: '18rem' }} key={book.asin} className='col col-sm-6 col-md-4 col-lg-3 mt-3' >
-                                <Card.Img variant="top" src={book.img} />
-                                <Card.Body>
-                                    <Card.Title>book.title</Card.Title>
-                                    <Card.Text>
-                                        {book.price}
-                                    </Card.Text>
-                                    <Button variant="primary" onClick={() => this.setState({
-                                        selectedBooks: book
-                                    })}>Buy</Button>
-                                </Card.Body>
-                            </Card>
-                        ))
-                    }
-                </Row>
-                {/* <Row className="justify-content-center mt-5">
-                    <Col xs={8}>
-                        <SelectedBook selectedBooks={this.selectedBooks.state} />
-                    </Col>
-                </Row> */}
-            </Container>
+            <Col xs={12} sm={6} md={4} lg={3} className="mb-5">
+                <Card>
+                    <Card.Img variant="top" src={this.props.book.img} className='img-fluid'
+                        style={{ height: "300px" }}
+                    />
+                    <Card.Body>
+                        <Card.Title>{this.props.book.title.slice(0, 15)}</Card.Title>
+                        <Card.Text>
+                            ${this.props.book.price}
+                        </Card.Text>
+                        <Button variant="primary">Buy</Button>
+                    </Card.Body>
+                </Card>
+            </Col>
         )
     }
 }
-export default Home
+export default SingleBook
