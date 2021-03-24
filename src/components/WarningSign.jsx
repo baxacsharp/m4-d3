@@ -1,26 +1,17 @@
-import { Alert, Button } from 'reat-bootstrap'
-const WarningSign = () => {
-    return
+import { Alert } from 'react-bootstrap'
+const WarningSign = (props) => {
+    return <Alert variant="danger">
+        <Alert.Heading>Awws ERROR</Alert.Heading>
+        <p>
+            {props.text}
+        </p>
+        <hr />
 
-    function AlertDismissibleExample() {
-        const [show, setShow] = useState(true);
+    </Alert>
 
-        if (show) {
-            return (
-                <Alert variant="danger" onClose={() => setShow(false)} dismissible>
-                    <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-                    <p>
-                        Change this and that and try again. Duis mollis, est non commodo
-                        luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                        Cras mattis consectetur purus sit amet fermentum.
-              </p>
-                </Alert>
-            );
-        }
-        return <Button onClick={() => setShow(true)}>Show Alert</Button>;
-    }
-
-    render(<AlertDismissibleExample />);
 }
+
+
+
 
 export default WarningSign
